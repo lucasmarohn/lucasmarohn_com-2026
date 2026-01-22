@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PageTransitionProvider } from "@/components/page-transition-provider";
 import "./globals.css";
 
 const aspekta = localFont({
@@ -78,7 +79,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <PageTransitionProvider>
+            {children}
+          </PageTransitionProvider>
         </ThemeProvider>
       </body>
     </html>

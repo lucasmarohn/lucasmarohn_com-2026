@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { TransitionLink } from "./transition-link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -31,7 +31,7 @@ export function ProjectCard({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn("group", className)}
     >
-      <Link href={`/work/${slug}`} className="block">
+      <TransitionLink href={`/work/${slug}`} className="block">
         <div className="py-4 flex flex-col leading-tight tracking-normal">
           <div>0{index + 1}</div>
           <div className="flex gap-1 items-end">
@@ -53,7 +53,7 @@ export function ProjectCard({
             />
           </div>
         )}
-      </Link>
+      </TransitionLink>
     </motion.div>
   );
 }

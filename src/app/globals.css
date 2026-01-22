@@ -144,3 +144,32 @@ html {
     font-weight: 500 !important;
   }
 }
+
+/* View Transitions API - Hard Wipe */
+@keyframes hard-wipe-in {
+  from {
+    mask-position: -100% 0;
+  }
+  to {
+    mask-position: 0% 0;
+  }
+}
+
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: hard-wipe-in 3s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  mask-image: linear-gradient(
+    to right,
+    black 50%,
+    transparent 50%
+  );
+  mask-size: 200% 100%;
+  mask-position: -100% 0;
+}

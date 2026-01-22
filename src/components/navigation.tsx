@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
+import { TransitionLink } from "./transition-link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -63,12 +63,12 @@ export function Navigation() {
         <Container>
           <nav className="flex items-center justify-between h-16 md:h-20">
             <div className="grow basis-1">
-              <Link
+              <TransitionLink
                 href="/"
                 className="text-lg md:text-xl tracking-tight hover:opacity-70 transition-opacity"
               >
                 Lucas Marohn
-              </Link>
+              </TransitionLink>
             </div>
             
             <div className={"text-lg md:text-xl grow transition-colors hover:text-foreground basis-1"}>Design & Code</div>
@@ -78,7 +78,7 @@ export function Navigation() {
               <div className="hidden md:flex items-center justify-between gap-4">
                 
                 {navItems.map((item) => (
-                  <Link
+                  <TransitionLink
                     key={item.href}
                     href={item.href}
                     className={cn(
@@ -89,7 +89,7 @@ export function Navigation() {
                     )}
                   >
                     {item.label}
-                  </Link>
+                  </TransitionLink>
                 ))}
                 
               </div>
@@ -137,7 +137,7 @@ export function Navigation() {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
+                    <TransitionLink
                       href={item.href}
                       className={cn(
                         "text-2xl  transition-colors",
@@ -147,7 +147,7 @@ export function Navigation() {
                       )}
                     >
                       {item.label}
-                    </Link>
+                    </TransitionLink>
                   </motion.div>
                 ))}
               </nav>
