@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { PageTransitionProvider } from "@/components/page-transition-provider";
 import "./globals.css";
 
 const aspekta = localFont({
@@ -13,13 +12,13 @@ const aspekta = localFont({
       style: "normal",
     },
     {
-      path: "../../public/fonts/Aspekta-600.otf",
+      path: "../../public/fonts/Aspekta-500.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Aspekta-600.otf",
-      weight: "600",
+      path: "../../public/fonts/Aspekta-500.otf",
+      weight: "500",
       style: "normal",
     },
   ],
@@ -77,13 +76,11 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
-          <PageTransitionProvider>
-            {children}
-          </PageTransitionProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

@@ -145,31 +145,27 @@ html {
   }
 }
 
-/* View Transitions API - Hard Wipe */
-@keyframes hard-wipe-in {
-  from {
-    mask-position: -100% 0;
-  }
-  to {
-    mask-position: 0% 0;
-  }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
 }
 
-::view-transition {
-  pointer-events: none;
+::view-transition-group(root) {
+  z-index: auto !important;
 }
 
-::view-transition-old(root) {
-  animation: none;
+::view-transition-image-pair(root) {
+  isolation: isolate;
+  will-change: transform, opacity, clip-path, mask-image, mask-position;
+  z-index: 1;
 }
 
 ::view-transition-new(root) {
-  animation: hard-wipe-in 3s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-  mask-image: linear-gradient(
-    to right,
-    black 50%,
-    transparent 50%
-  );
-  mask-size: 200% 100%;
-  mask-position: -100% 0;
+  z-index: 1000;
+  animation: none !important;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none !important;
 }

@@ -10,7 +10,7 @@ interface ProjectCardProps {
   title: string;
   slug: string;
   tags: string[];
-  image?: string;
+  thumbnailImage?: string;
   index?: number;
   className?: string;
 }
@@ -19,7 +19,7 @@ export function ProjectCard({
   title,
   slug,
   tags,
-  image,
+  thumbnailImage,
   index = 0,
   className,
 }: ProjectCardProps) {
@@ -42,10 +42,10 @@ export function ProjectCard({
         </div>
 
         {/* Image */}
-        {image && (
+        {thumbnailImage && (
           <div className="relative aspect-video overflow-hidden bg-muted mb-8 md:mb-10">
             <Image
-              src={image}
+              src={thumbnailImage}
               alt={title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

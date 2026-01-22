@@ -37,6 +37,38 @@ export const project = defineType({
       rows: 4,
     }),
     defineField({
+      name: "thumbnailImage",
+      title: "Thumbnail Image",
+      type: "image",
+      description: "Small preview image used in project cards and listings",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
+      name: "featuredImage",
+      title: "Featured Image",
+      type: "image",
+      description: "Large hero image displayed at the top of the project detail page",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
       name: "images",
       title: "Images",
       type: "array",

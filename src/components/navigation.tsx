@@ -71,7 +71,7 @@ export function Navigation() {
               </TransitionLink>
             </div>
             
-            <div className={"text-lg md:text-xl grow transition-colors hover:text-foreground basis-1"}>Design & Code</div>
+            <div className={"hidden md:flex text-lg md:text-xl grow transition-colors hover:text-foreground basis-1"}>Design & Code</div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex grow justify-between basis-1">
@@ -104,7 +104,7 @@ export function Navigation() {
               <ThemeToggle />
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-muted transition-colors"
+                className="w-9 h-9 flex items-center justify-center translate-x-2 hover:bg-muted transition-colors"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -132,9 +132,6 @@ export function Navigation() {
                 {navItems.map((item, index) => (
                   <motion.div
                     key={item.href}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
                     transition={{ delay: index * 0.1 }}
                   >
                     <TransitionLink

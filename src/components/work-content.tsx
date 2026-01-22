@@ -18,14 +18,14 @@ export function WorkContent({ projects }: WorkContentProps) {
         {/* Projects Grid */}
         <section className="py-16 md:py-24">
           <Container>
-            <div className="space-y-0">
+            <div className="grid md:grid-cols-2 gap-4">
               {projects.map((project, index) => (
                 <ProjectCard
                   key={project.slug}
                   title={project.title}
                   slug={project.slug}
                   tags={project.tags}
-                  image={project.image}
+                  thumbnailImage={project.thumbnailImage}
                   index={index}
                 />
               ))}

@@ -7,6 +7,14 @@ export interface SanityProject {
   slug: string;
   tags: string[];
   description: string;
+  thumbnailImage?: {
+    asset: { _ref: string };
+    alt?: string;
+  };
+  featuredImage?: {
+    asset: { _ref: string };
+    alt?: string;
+  };
   images: Array<{
     asset: { _ref: string };
     alt?: string;
@@ -19,7 +27,7 @@ export interface ProjectForCard {
   title: string;
   slug: string;
   tags: string[];
-  image?: string;
+  thumbnailImage?: string;
 }
 
 export interface ProjectForDetail {
@@ -27,6 +35,7 @@ export interface ProjectForDetail {
   slug: string;
   tags: string[];
   description: string;
+  featuredImage?: string;
   images: string[];
   liveUrl?: string;
 }
@@ -39,6 +48,8 @@ const allProjectsQuery = `
     "slug": slug.current,
     tags,
     description,
+    thumbnailImage,
+    featuredImage,
     images,
     liveUrl,
     order
@@ -52,6 +63,8 @@ const projectBySlugQuery = `
     "slug": slug.current,
     tags,
     description,
+    thumbnailImage,
+    featuredImage,
     images,
     liveUrl,
     order
@@ -66,8 +79,8 @@ export async function getAllProjects(): Promise<ProjectForCard[]> {
     title: project.title,
     slug: project.slug,
     tags: project.tags || [],
-    image: project.images?.[0]
-      ? urlFor(project.images[0]).width(1200).height(750).url()
+    thumbnailImage: project.thumbnailImage
+      ? urlFor(project.thumbnailImage).width(1600).url()
       : undefined,
   }));
 }
@@ -82,8 +95,11 @@ export async function getProjectBySlug(slug: string): Promise<ProjectForDetail |
     slug: project.slug,
     tags: project.tags || [],
     description: project.description || "",
+    featuredImage: project.featuredImage
+      ? urlFor(project.featuredImage).width(2400).url()
+      : undefined,
     images: project.images?.map((img) =>
-      urlFor(img).width(1600).height(1000).url()
+      urlFor(img).width(2000).url()
     ) || [],
     liveUrl: project.liveUrl,
   };
@@ -110,4 +126,26 @@ export async function getAdjacentProjects(slug: string): Promise<{
     prev: index > 0 ? projects[index - 1] : null,
     next: index < projects.length - 1 ? projects[index + 1] : null,
   };
+}
+
+export async function getMoreProjects(excludeSlug: string, limit: number = 2): Promise<ProjectForCard[]> {
+  const projects = await sanityFetch<SanityProject[]>(
+    `*[_type == "project" && slug.current != $excludeSlug] | order(order asc)[0...${limit}] {
+      _id,
+      title,
+      "slug": slug.current,
+      tags,
+      thumbnailImage
+    }`,
+    { excludeSlug }
+  );
+
+  return projects.map((project) => ({
+    title: project.title,
+    slug: project.slug,
+    tags: project.tags || [],
+    thumbnailImage: project.thumbnailImage
+      ? urlFor(project.thumbnailImage).width(1600).url()
+      : undefined,
+  }));
 }

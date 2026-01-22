@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer>
       <Container className="border-t border-border pt-12 md:pt-16 min-h-[50vh] flex flex-col pb-12">
-       <div className="flex justify-between font-bold md:text-[40px] leading-tight grow">
+       <div className="flex flex-col md:flex-row gap-8 md:justify-between font-bold text-2xl md:text-[40px] leading-tight grow">
         <div className="flex flex-col">
           <a className="underline hover:no-underline" href="mailto:lucas@lucasmarohn.com">lucas@lucasmarohn.com</a>
           <div>→ Portland, OR</div>
@@ -28,11 +28,11 @@ export function Footer() {
        </div>
 
       <div className="flex flex-col">
-        <div className="font-inter text-[12vw] font-[600] tracking-tighter grow items-end flex md:pt-24">
+        <div className="font-inter text-[11vw] md:text-[12vw] font-[600] tracking-tighter grow items-end flex md:pt-24">
           lucasmarohn.com
         </div>
         <div className="grid md:grid-cols-2">
-          <div className="">Copyright © 2026 Lucas Marohn, LLC</div>
+          <div className="">Copyright 2026 © Lucas Marohn LLC</div>
           <a className="underline hover:no-underline">Terms & Conditions</a>
         </div>
        </div>

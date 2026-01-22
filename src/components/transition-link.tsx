@@ -1,13 +1,46 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Link, { LinkProps } from "next/link";
-import { ReactNode, MouseEvent } from "react";
-import { usePageTransition } from "./page-transition-provider";
-
+import React, { ReactNode } from "react";
+import { useTransitionRouter } from "next-view-transitions";
 interface TransitionLinkProps extends LinkProps {
   children: ReactNode;
   className?: string;
+}
+
+const slideInOut = () => {
+  document.documentElement.animate([
+      {
+        opacity: 1,
+        transform: "translateY(0)"
+      },
+      {
+        // opacity: 0.2,
+        // transform: "translateX(-35%)",
+      }
+    ], {
+      duration: 1500,
+      easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+      fill: "forwards",
+      pseudoElement: "::view-transition-old(root)"
+    })
+
+    document.documentElement.animate(
+      [
+        {
+          clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+        
+        },
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        }
+      ], {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-new(root)"
+      }
+    )
 }
 
 export function TransitionLink({
@@ -16,30 +49,6 @@ export function TransitionLink({
   className,
   ...props
 }: TransitionLinkProps) {
-  const { startTransition, isTransitioning } = usePageTransition();
-  const pathname = usePathname();
 
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    // Don't transition if it's the same page, an external link, or already transitioning
-    const hrefString = typeof href === "string" ? href : href.pathname || "";
-
-    if (
-      hrefString === pathname ||
-      hrefString.startsWith("http") ||
-      hrefString.startsWith("mailto:") ||
-      hrefString.startsWith("tel:") ||
-      isTransitioning
-    ) {
-      return;
-    }
-
-    e.preventDefault();
-    startTransition(hrefString);
-  };
-
-  return (
-    <Link href={href} onClick={handleClick} className={className} {...props}>
-      {children}
-    </Link>
-  );
+  return <Link href={href} className={className} {...props}>{children}</Link>
 }

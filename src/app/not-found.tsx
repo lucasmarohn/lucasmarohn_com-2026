@@ -13,33 +13,22 @@ export default function NotFound() {
         <Container>
           <div className="py-20">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              
               className="text-base  text-muted-foreground uppercase tracking-wider mb-4"
             >
               404 Error
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6"
             >
               Page not found
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
               className="text-lg text-muted-foreground mb-8 max-w-md"
             >
               Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
             >
               <Link
                 href="/"

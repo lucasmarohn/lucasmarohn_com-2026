@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   getProjectBySlug,
-  getAdjacentProjects,
+  getMoreProjects,
   getAllProjectSlugs,
 } from "@/lib/sanity-queries";
 import { ProjectContent } from "@/components/project-content";
@@ -54,13 +54,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const { prev, next } = await getAdjacentProjects(slug);
+  const moreProjects = await getMoreProjects(slug, 2);
 
   return (
     <ProjectContent
       project={project}
-      prev={prev}
-      next={next}
+      moreProjects={moreProjects}
     />
   );
 }

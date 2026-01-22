@@ -9,42 +9,34 @@ interface PageHeaderProps {
   subtitle?: string;
   fullHeight?: boolean;
   className?: string;
+  align?: string;
 }
 
 export function PageHeader({
   title,
   subtitle,
   fullHeight = false,
+  align = 'end',
   className,
 }: PageHeaderProps) {
   return (
     <section
       className={cn(
-        "flex items-end pb-12 md:pb-16 pt-24 md:pt-28",
-        fullHeight ? "min-h-screen" : "min-h-[25vh]",
+        "flex items-end pb-12 md:pb-16 pt-24 md:pt-48 min-h-[40vh]",
         className
       )}
     >
-      <Container>
-        <div className="max-w-3xl">
-          {subtitle && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-base  text-muted-foreground uppercase tracking-wider mb-4"
+      <Container >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 pt-4 gap-4 border-t">
+          {align !== 'start' && <div></div>}
+          {align !== 'start' && <div className="hidden lg:block"></div>}
+          <div className="">
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight"
             >
-              {subtitle}
-            </motion.p>
-          )}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight"
-          >
-            {title}
-          </motion.h1>
+              {title}
+            </motion.h1>
+          </div>
         </div>
       </Container>
     </section>
