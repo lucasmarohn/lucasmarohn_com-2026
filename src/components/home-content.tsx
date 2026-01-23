@@ -83,6 +83,10 @@ export function HomeContent({ projects }: HomeContentProps) {
                 <p>Lucas recently architected global design systems full-time as a senior designer and senior developer at Universal Music Group, powering 3,000+ online stores that drive $100M+ in annual revenue for musicians around the world. </p>
                 <p>He co-founded the app to cure loneliness, Spacewalk. And he is a founding member of various startups.</p>
 
+                <div className="size-16 mx-left relative">
+                  <Image src="/images/signature-black.png" alt="" fill className="dark:invert" />
+                </div>
+
                 <div className="flex flex-col my-4 py-2 font-bold text-4xl md:text-[48px] gap-3 leading-tight">
                   <div className="w-full h-0 border-t"></div>
                   <div>Execnow</div>
@@ -93,8 +97,6 @@ export function HomeContent({ projects }: HomeContentProps) {
                   <div className="w-full h-0 border-t"></div>
                 </div>
               </div>
-
-              
             </div>
           </Container>
         </section>

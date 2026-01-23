@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { FaviconSwitcher } from "@/components/favicon-switcher";
 import "./globals.css";
 
 const aspekta = localFont({
@@ -43,6 +44,12 @@ export const metadata: Metadata = {
   keywords: ["designer", "developer", "brand identity", "websites", "apps", "portfolio"],
   authors: [{ name: "Lucas Marohn" }],
   creator: "Lucas Marohn",
+  icons: {
+    icon: [
+      { url: "/images/signature-black.png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/signature-white.png", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

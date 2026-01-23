@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "./container";
+import Image from "next/image";
 
 const socialLinks = [
   { label: "Instagram", href: "https://instagram.com/namedlucas" },
@@ -22,7 +23,7 @@ export function Footer() {
           
         </div>
 
-        <a className="flex flex-col underline hover:no-underline">
+        <a className="flex flex-col underline hover:no-underline" href="https://calendly.com/lucasmarohn/websprint">
           Work with me
         </a>
        </div>
@@ -31,9 +32,10 @@ export function Footer() {
         <div className="font-inter text-[11vw] md:text-[12vw] font-[600] tracking-tighter grow items-end flex md:pt-24">
           lucasmarohn.com
         </div>
-        <div className="grid md:grid-cols-2">
+        <div className="grid md:grid-cols-2 items-center">
           <div className="">Copyright 2026 © Lucas Marohn LLC</div>
-          <a className="underline hover:no-underline">Terms & Conditions</a>
+          <div className="size-12 relative ml-auto"><Image src="/images/signature-black.png" className="dark:invert object-contain" alt="" fill /></div>
+          {/* <a className="underline hover:no-underline">Terms & Conditions</a> */}
         </div>
        </div>
       </Container>
