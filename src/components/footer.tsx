@@ -23,7 +23,7 @@ export function Footer() {
           
         </div>
 
-        <a className="flex flex-col underline hover:no-underline" href="https://calendly.com/lucasmarohn/websprint">
+        <a className="flex flex-col underline hover:no-underline" href="https://calendly.com/namedlucas/30min">
           Work with me
         </a>
        </div>
