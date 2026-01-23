@@ -19,7 +19,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col">
-          {socialLinks.map(link => <Link className="underline hover:no-underline" key={link.href} href={link.href}>{link.label}</Link>)}
+          {socialLinks.map(link => <Link className="underline hover:no-underline" target="_blank" key={link.href} href={link.href}>{link.label}</Link>)}
           
         </div>
 
