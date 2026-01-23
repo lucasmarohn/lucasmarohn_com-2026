@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { FaviconSwitcher } from "@/components/favicon-switcher";
 import "./globals.css";
 
 const aspekta = localFont({
