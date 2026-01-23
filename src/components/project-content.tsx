@@ -48,13 +48,32 @@ export function ProjectContent({ project, moreProjects }: ProjectContentProps) {
 
         
 
-        {project.featuredImage && <section>
-          <Container>
-            <div className="w-full aspect-video relative">
-              <Image src={project.featuredImage} fill alt="" className="object-cover" />
-            </div>
-          </Container>
-        </section>}
+        {project.featuredImage && (
+          <section>
+            <Container>
+              <div className="w-full aspect-video relative">
+                {project.featuredImage.type === "image" ? (
+                  <Image
+                    src={project.featuredImage.url}
+                    fill
+                    alt={project.featuredImage.alt || ""}
+                    className="object-cover"
+                  />
+                ) : (
+                  <video
+                    src={project.featuredImage.url}
+                    poster={project.featuredImage.poster}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+            </Container>
+          </section>
+        )}
 
         <section className="pb-12 md:pb-16 mt-16 md:mt-36">
           <Container>
@@ -80,17 +99,29 @@ export function ProjectContent({ project, moreProjects }: ProjectContentProps) {
           <section className="pb-16 md:pb-24">
             <Container>
               <div className="gap-4 grid md:grid-cols-2">
-                {project.images.map((image, index) => (
+                {project.images.map((media, index) => (
                   <motion.div
                     key={index}
                     className="relative aspect-square overflow-hidden bg-muted"
                   >
-                    <Image
-                      src={image}
-                      alt={`${project.title} - Image ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
+                    {media.type === "image" ? (
+                      <Image
+                        src={media.url}
+                        alt={media.alt || `${project.title} - Image ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <video
+                        src={media.url}
+                        poster={media.poster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </motion.div>
                 ))}
               </div>

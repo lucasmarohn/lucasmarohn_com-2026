@@ -92,9 +92,9 @@
   --ring: rgb(229, 229, 229);
 }
 
-/* Smooth scroll */
+/* Instant scroll - no animation */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 @layer base {

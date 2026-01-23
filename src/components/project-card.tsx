@@ -6,11 +6,13 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 
+import type { MediaItem } from "@/lib/sanity-queries";
+
 interface ProjectCardProps {
   title: string;
   slug: string;
   tags: string[];
-  thumbnailImage?: string;
+  thumbnailImage?: MediaItem;
   index?: number;
   className?: string;
 }
@@ -41,16 +43,28 @@ export function ProjectCard({
           <p className="text-muted-foreground">{tags.map((tag,i) => i === 0 ? tag : ", " + tag)}</p>
         </div>
 
-        {/* Image */}
+        {/* Media */}
         {thumbnailImage && (
           <div className="relative aspect-video overflow-hidden bg-muted mb-8 md:mb-10">
-            <Image
-              src={thumbnailImage}
-              alt={title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-            />
+            {thumbnailImage.type === "image" ? (
+              <Image
+                src={thumbnailImage.url}
+                alt={thumbnailImage.alt || title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
+            ) : (
+              <video
+                src={thumbnailImage.url}
+                poster={thumbnailImage.poster}
+                className="w-full h-full object-cover"
+                muted
+                loop
+                playsInline
+                autoPlay
+              />
+            )}
           </div>
         )}
       </TransitionLink>
