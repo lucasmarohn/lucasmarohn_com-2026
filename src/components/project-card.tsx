@@ -4,7 +4,7 @@ import { TransitionLink } from "./transition-link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 
 import type { MediaItem } from "@/lib/sanity-queries";
 
@@ -12,7 +12,9 @@ interface ProjectCardProps {
   title: string;
   slug: string;
   tags: string[];
+  shortDescription?: string;
   thumbnailImage?: MediaItem;
+  passwordProtected?: boolean;
   index?: number;
   className?: string;
 }
@@ -21,7 +23,9 @@ export function ProjectCard({
   title,
   slug,
   tags,
+  shortDescription,
   thumbnailImage,
+  passwordProtected,
   index = 0,
   className,
 }: ProjectCardProps) {
@@ -40,11 +44,11 @@ export function ProjectCard({
             <h3>{title}</h3>
             <div className="overflow-hidden"><ArrowUpRight className="-translate-x-full translate-y-full group-hover:translate-0 transition-transform duration-300 stroke-[1.5] ease-out" /></div>
           </div>
-          <p className="text-muted-foreground">{tags.map((tag,i) => i === 0 ? tag : ", " + tag)}</p>
+          {shortDescription && <p className="text-muted-foreground">{shortDescription}</p>}
         </div>
 
         {/* Media */}
-        {thumbnailImage && (
+        {thumbnailImage ? (
           <div className="relative aspect-video overflow-hidden bg-muted mb-8 md:mb-10">
             {thumbnailImage.type === "image" ? (
               <Image
@@ -66,7 +70,15 @@ export function ProjectCard({
               />
             )}
           </div>
-        )}
+        ) : passwordProtected ? (
+          <div className="relative aspect-video overflow-hidden bg-background border border-border mb-8 md:mb-10">
+            <div className="absolute inset-0 border-t-[48px] border-l-[48px] border-r-[48px] border-muted" />
+            <div className="relative z-10 flex flex-col items-center justify-center h-full mt-[32px] gap-3">
+              <Lock className="w-6 h-6 text-muted-foreground" />
+              <span className="text-2xl md:text-3xl font-semibold tracking-tighter text-foreground">{title}</span>
+            </div>
+          </div>
+        ) : null}
       </TransitionLink>
     </motion.div>
   );

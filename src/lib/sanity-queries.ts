@@ -31,6 +31,7 @@ export interface SanityProject {
   thumbnailImage?: SanityMedia;
   featuredImage?: SanityMedia;
   images: SanityMedia[];
+  shortDescription?: string;
   liveUrl?: string;
   order: number;
   passwordProtected?: boolean;
@@ -40,7 +41,9 @@ export interface ProjectForCard {
   title: string;
   slug: string;
   tags: string[];
+  shortDescription?: string;
   thumbnailImage?: MediaItem;
+  passwordProtected?: boolean;
 }
 
 export interface ProjectForDetail {
@@ -87,6 +90,7 @@ const allProjectsQuery = `
     "slug": slug.current,
     tags,
     description,
+    shortDescription,
     passwordProtected,
     thumbnailImage {
       mediaType,
@@ -139,6 +143,7 @@ const projectBySlugQuery = `
     "slug": slug.current,
     tags,
     description,
+    shortDescription,
     passwordProtected,
     thumbnailImage {
       mediaType,
@@ -192,7 +197,9 @@ export async function getAllProjects(): Promise<ProjectForCard[]> {
     title: project.title,
     slug: project.slug,
     tags: project.tags || [],
+    shortDescription: project.shortDescription,
     thumbnailImage: convertMedia(project.thumbnailImage),
+    passwordProtected: project.passwordProtected,
   }));
 }
 
@@ -243,6 +250,8 @@ export async function getMoreProjects(excludeSlug: string, limit: number = 2): P
       title,
       "slug": slug.current,
       tags,
+      shortDescription,
+      passwordProtected,
       thumbnailImage {
         mediaType,
         image {
@@ -264,6 +273,8 @@ export async function getMoreProjects(excludeSlug: string, limit: number = 2): P
     title: project.title,
     slug: project.slug,
     tags: project.tags || [],
+    shortDescription: project.shortDescription,
     thumbnailImage: convertMedia(project.thumbnailImage),
+    passwordProtected: project.passwordProtected,
   }));
 }

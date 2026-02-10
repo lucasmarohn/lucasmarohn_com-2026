@@ -112,7 +112,9 @@ export function HomeContent({ projects }: HomeContentProps) {
                   title={project.title}
                   slug={project.slug}
                   tags={project.tags}
+                  shortDescription={project.shortDescription}
                   thumbnailImage={project.thumbnailImage}
+                  passwordProtected={project.passwordProtected}
                   index={index}
                 />
               ))}

@@ -103,6 +103,12 @@ export const project = defineType({
       },
     }),
     defineField({
+      name: "shortDescription",
+      title: "Short Description",
+      type: "string",
+      description: "Brief summary shown on project cards below the tags",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",

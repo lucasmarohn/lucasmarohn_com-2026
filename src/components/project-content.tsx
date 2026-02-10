@@ -130,7 +130,18 @@ export function ProjectContent({ project, moreProjects }: ProjectContentProps) {
               </Container>
             </section>
 
-            <section className="py-16 md:py-24" />
+            <section className="pb-12 md:pb-16 mt-16 md:mt-36">
+              <Container>
+                <div className="border-t pt-4 grid gap-4 md:grid-cols-2">
+                  <p>Project Information</p>
+                  <div className="flex flex-col gap-4">
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+              </Container>
+            </section>
           </>
         ) : (
           <>
@@ -230,7 +241,9 @@ export function ProjectContent({ project, moreProjects }: ProjectContentProps) {
                       title={project.title}
                       slug={project.slug}
                       tags={project.tags}
+                      shortDescription={project.shortDescription}
                       thumbnailImage={project.thumbnailImage}
+                      passwordProtected={project.passwordProtected}
                       index={index}
                     />
                   ))}
