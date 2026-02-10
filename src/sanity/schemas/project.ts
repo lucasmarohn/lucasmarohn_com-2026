@@ -133,6 +133,13 @@ export const project = defineType({
       type: "url",
     }),
     defineField({
+      name: "passwordProtected",
+      title: "Password Protected",
+      type: "boolean",
+      description: "When enabled, the case study page will show a password gate instead of the actual content",
+      initialValue: false,
+    }),
+    defineField({
       name: "order",
       title: "Order",
       type: "number",

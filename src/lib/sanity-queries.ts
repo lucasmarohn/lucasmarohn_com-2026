@@ -33,6 +33,7 @@ export interface SanityProject {
   images: SanityMedia[];
   liveUrl?: string;
   order: number;
+  passwordProtected?: boolean;
 }
 
 export interface ProjectForCard {
@@ -50,6 +51,7 @@ export interface ProjectForDetail {
   featuredImage?: MediaItem;
   images: MediaItem[];
   liveUrl?: string;
+  passwordProtected?: boolean;
 }
 
 // Helper to convert Sanity media to MediaItem
@@ -85,6 +87,7 @@ const allProjectsQuery = `
     "slug": slug.current,
     tags,
     description,
+    passwordProtected,
     thumbnailImage {
       mediaType,
       image {
@@ -136,6 +139,7 @@ const projectBySlugQuery = `
     "slug": slug.current,
     tags,
     description,
+    passwordProtected,
     thumbnailImage {
       mediaType,
       image {
@@ -205,6 +209,7 @@ export async function getProjectBySlug(slug: string): Promise<ProjectForDetail |
     featuredImage: convertMedia(project.featuredImage),
     images: project.images?.map((media) => convertMedia(media)).filter((m): m is MediaItem => m !== undefined) || [],
     liveUrl: project.liveUrl,
+    passwordProtected: project.passwordProtected,
   };
 }
 
