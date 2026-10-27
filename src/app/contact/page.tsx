@@ -2,6 +2,7 @@ import { ContactContent } from "@/components/contact-content";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Get in touch with Lucas Marohn for design and development projects. Based in Portland, OR.",

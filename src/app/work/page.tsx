@@ -3,6 +3,7 @@ import { getAllProjects } from "@/lib/sanity-queries";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/work" },
   title: "Work",
   description:
     "Selected projects by Lucas Marohn including brand identity, website design, and app development.",

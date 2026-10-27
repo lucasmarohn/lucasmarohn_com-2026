@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteUrl, siteName, siteDescription, ogImage } from "@/lib/site";
 import "./globals.css";
 
 const aspekta = localFont({
@@ -35,6 +36,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Lucas Marohn - Design & Code",
     template: "%s | Lucas Marohn",
@@ -53,17 +55,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lucasmarohn.com",
-    siteName: "Lucas Marohn",
+    url: siteUrl,
+    siteName,
     title: "Lucas Marohn - Design & Code",
-    description:
-      "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products.",
+    description: siteDescription,
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: "Lucas Marohn - Design & Code",
-    description:
-      "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products.",
+    description: siteDescription,
+    images: [ogImage],
   },
   robots: {
     index: true,

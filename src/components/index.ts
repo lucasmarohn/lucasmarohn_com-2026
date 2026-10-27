@@ -11,3 +11,4 @@ export { AboutContent } from "./about-content";
 export { ContactContent } from "./contact-content";
 export { WorkContent } from "./work-content";
 export { HomeContent } from "./home-content";
+export { JsonLd } from "./json-ld";
