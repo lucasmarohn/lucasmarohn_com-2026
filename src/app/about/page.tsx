@@ -4,11 +4,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Lucas Marohn is a self-taught designer and full stack developer from California with over a decade of experience in digital design and development.",
+    "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products for over a decade.",
   openGraph: {
     title: "About | Lucas Marohn",
     description:
-      "Lucas Marohn is a self-taught designer and full stack developer from California.",
+      "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products.",
   },
 };
 

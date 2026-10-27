@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: "%s | Lucas Marohn",
   },
   description:
-    "Lucas Marohn is a self-taught designer and full stack developer from California. Brand identity, websites, and apps.",
+    "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products. Brand identity, websites, and apps.",
   keywords: ["designer", "developer", "brand identity", "websites", "apps", "portfolio"],
   authors: [{ name: "Lucas Marohn" }],
   creator: "Lucas Marohn",
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     siteName: "Lucas Marohn",
     title: "Lucas Marohn - Design & Code",
     description:
-      "Lucas Marohn is a self-taught designer and full stack developer from California.",
+      "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Lucas Marohn - Design & Code",
     description:
-      "Lucas Marohn is a self-taught designer and full stack developer from California.",
+      "Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products.",
   },
   robots: {
     index: true,

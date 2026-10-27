@@ -50,7 +50,6 @@ export function AboutContent() {
           <Container>
             <div className="flex flex-col leading-tight tracking-tighter border-t pt-4 pb-36 lg:text-[40px] font-medium">
               <div>Execnow — Founding Designer, CTO</div>
-              <div>Spacewalk — Founding Designer, Partner</div>
               <div>Really Cool Ads — Partner, Co-founder</div>
             </div>
           </Container>

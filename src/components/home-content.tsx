@@ -76,12 +76,12 @@ export function HomeContent({ projects }: HomeContentProps) {
             <div className="grid md:grid-cols-2 gap-4 border-t my-12 py-4">
               <div>About</div>
               <div className="flex flex-col gap-4 max-w-[55ch]">
-                <p>Lucas Marohn is a self-taught designer and full stack developer from California. His approach to his work is that of a craftsman — endless curiosity, pride in detail, honoring tradition, and nurturing motivation, discipline, and passion in the next generation of creatives.</p>
-                <p>He debuted his first web development tutorial series on YouTube at 12 years old, going on to study cinematography, computer science, and entrepreneurship over 6 years before dropping out of Cal Poly SLO.</p>
+                <p>Lucas Marohn is a senior product designer and full stack developer from California, building high-craft, AI-enabled products. His approach to his work is that of a craftsman — endless curiosity, pride in detail, honoring tradition, and nurturing motivation, discipline, and passion in the next generation of creatives.</p>
+                <p>Self-taught, he debuted his first web development tutorial series on YouTube at 12 years old, going on to study cinematography, computer science, and entrepreneurship over 6 years before dropping out of Cal Poly SLO.</p>
                 <p>Lucas brings comprehensive and excited expertise about storytelling, design, software development, and data analysis packaged into an iterative, integrated approach.</p>
                 <p>He typically engages as a fractional product designer, helping startups establish their brand strategy, build their brand identity, craft delightful products, and then define, measure, and improve on key success indicators. </p>
                 <p>Lucas recently architected global design systems full-time as a senior designer and senior developer at Universal Music Group, powering 3,000+ online stores that drive $100M+ in annual revenue for musicians around the world. </p>
-                <p>He co-founded the app to cure loneliness, Spacewalk. And he is a founding member of various startups.</p>
+                <p>He is a founding member of various startups.</p>
 
                 <div className="size-16 mx-left relative">
                   <Image src="/images/signature-black.png" alt="" fill className="dark:invert" />
@@ -92,8 +92,6 @@ export function HomeContent({ projects }: HomeContentProps) {
                   <div>Execnow</div>
                   <div className="w-full h-0 border-t"></div>
                   <div>Really Cool Ads</div>
-                  <div className="w-full h-0 border-t"></div>
-                  <div>Spacewalk</div>
                   <div className="w-full h-0 border-t"></div>
                 </div>
               </div>
