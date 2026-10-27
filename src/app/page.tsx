@@ -32,6 +32,12 @@ const graph = {
         "Next.js",
         "TypeScript",
       ],
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "California Polytechnic State University, San Luis Obispo",
+        url: "https://www.calpoly.edu",
+        sameAs: "https://en.wikipedia.org/wiki/California_Polytechnic_State_University",
+      },
     },
     {
       "@type": "WebSite",

@@ -14,5 +14,6 @@ export const ogImage = {
 
 export const socialProfiles = [
   "https://linkedin.com/in/lucasmarohn",
+  "https://github.com/lucasmarohn",
   "https://instagram.com/namedlucas",
 ];
